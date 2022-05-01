@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   items = [
     {
-      title: 'Master',
-      route: '/branch/master',
+      title: 'Dashboard',
+      route: '/home',
+      icon: 'business',
+    },
+    {
+      title: 'Admin',
+      route: '/admin',
       icon: 'business',
     },
   ];

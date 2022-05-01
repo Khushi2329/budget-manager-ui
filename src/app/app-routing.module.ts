@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
 import { BranchMasterListComponent } from './branch-master-list/branch-master-list.component';
 import { CreateMasterDataComponent } from './create-master-data/create-master-data.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,20 +11,14 @@ import { TruckMasterComponent } from './module/truck/truck-master/truck-master.c
 import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent },
-
-  {path: 'landing-page', component: HomeComponent, children : [
-    {path: '', redirectTo: 'master', pathMatch: 'full'},
-    {path: 'master', component: BranchMasterListComponent},
-    {path: 'add/:type', component: CreateMasterDataComponent}
+  
+  {path: '', component: HomeComponent, children : [
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'home', component: BranchMasterListComponent},
+    {path: 'admin', component: AdminComponent}
 
   ]},
-  {path: 'truck', component: TruckDashboardComponent, children : [
-    {path: '', redirectTo: 'master', pathMatch: 'full'},
-    {path: 'master', component: TruckMasterComponent},
-  ]}
-  
 ];
 
 @NgModule({

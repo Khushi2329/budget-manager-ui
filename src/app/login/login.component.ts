@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res) => {
           localStorage.setItem('currentUser', JSON.stringify(res));
-          this.router.navigate(['/landing-page']);
+          this.router.navigate(['/home']);
         },
         (error) => {
           this.loading = false;

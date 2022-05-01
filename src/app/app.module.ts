@@ -24,6 +24,7 @@ import { TruckDashboardComponent } from './module/truck/truck-dashboard/truck-da
 import { TruckMasterComponent } from './module/truck/truck-master/truck-master.component';
 import { AddMasterComponent } from './module/truck/add-master/add-master.component';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MatDialogRef } from '@angular/material/dialog';
     TruckDashboardComponent,
     TruckMasterComponent,
     AddMasterComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
