@@ -13,7 +13,7 @@ export class AuthenticationService {
   showSideNav = false;
   showOnlyIcon = false;
   tokenData = JSON.parse(localStorage.getItem('currentUser') || '{}');
-  baseUrl = 'https://kstc-node.herokuapp.com';
+  baseUrl = 'http://localhost:3000';
 
 
 
