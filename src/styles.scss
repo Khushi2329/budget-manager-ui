@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* Add application styles & imports to this file! */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ui-accordion .ui-accordion-header a {
+  background: #f0f4ff !important;
+  border: 1px solid #c0cce8 !important;
+}
+
+.ui-accordion .ui-accordion-header-text {
+  color: #000;
+}
+
+body
+  .ui-accordion
+  .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover
+  a
+  .ui-accordion-toggle-icon {
+  color: #000;
+}
+
+body
+  .ui-accordion
+  .ui-accordion-header:not(.ui-state-disabled).ui-state-active
+  a
+  .ui-accordion-toggle-icon {
+  color: #000;
+}
+
+.page-container {
+  padding: 0 40px 60px 40px;
+
+  &.fix-header-container {
+    padding-top: 121px;
+   
+  }
+}

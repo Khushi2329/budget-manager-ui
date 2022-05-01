@@ -1,0 +1,249 @@
+
+
+<div class="card">
+    <!-- <h5>Tooltips</h5> -->
+    <p-tabView>
+        <p-tabPanel header="Branch" leftIcon="pi pi-calendar" tooltip="Branch management">
+            <div class="page-title d-md-flex justify-content-between align-items-center">
+                <h3> Branch Management</h3>
+                <div class="text-right">
+                    <button class="btn btn-primary sm wid-150 ml-10" type="button" (click)="goToAddMasterData('branch')">
+                        New Branch
+                    </button>
+                </div>
+            </div>
+            
+            
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event, 'branch')" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSourceBranchMaster">
+            
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef>Code </th>
+                        <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+                    </ng-container>
+            
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+            
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="address">
+                        <th mat-header-cell *matHeaderCellDef> Address </th>
+                        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                    </ng-container>
+            
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="mobile">
+                        <th mat-header-cell *matHeaderCellDef> Phone </th>
+                        <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="managerName">
+                        <th mat-header-cell *matHeaderCellDef> Manager Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.managerName}} </td>
+                    </ng-container>
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsBranchMaster"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsBranchMaster;"></tr>
+                </table>
+            
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div> 
+        </p-tabPanel>
+        <p-tabPanel header="Station" rightIcon="pi pi-inbox" tooltip="Station Management">
+            <div class="page-title d-md-flex justify-content-between align-items-center">
+                <h3> Station Management</h3>
+                <div class="text-right">
+                    <button class="btn btn-primary sm wid-150 ml-10" type="button" (click)="goToAddMasterData('station')">
+                        New Station
+                    </button>
+                </div>
+            </div>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event, 'station')" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSourceStationMaster">
+            
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="gstNo">
+                        <th mat-header-cell *matHeaderCellDef>GST  No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.gstNo}} </td>
+                    </ng-container>
+            
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="state">
+                        <th mat-header-cell *matHeaderCellDef> State </th>
+                        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+                    </ng-container>
+            
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="postalCode">
+                        <th mat-header-cell *matHeaderCellDef> Postal Code </th>
+                        <td mat-cell *matCellDef="let element"> {{element.postalCode}} </td>
+                    </ng-container>
+            
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="branch">
+                        <th mat-header-cell *matHeaderCellDef> Branch </th>
+                        <td mat-cell *matCellDef="let element"> {{element.branch}} </td>
+                    </ng-container>
+            
+                   
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsStationMaster"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsStationMaster;"></tr>
+                </table>
+            
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div> 
+        </p-tabPanel>
+        <p-tabPanel header="GST NO" rightIcon="pi pi-inbox" tooltip="GST">
+            <div class="page-title d-md-flex justify-content-between align-items-center">
+                <h3> GST Management</h3>
+                <div class="text-right">
+                    <button class="btn btn-primary sm wid-150 ml-10" type="button" (click)="goToAddMasterData('gst')">
+                        New GST
+                    </button>
+                </div>
+            </div>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event, 'gst')" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSourceGstMaster">
+            
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="gstNo">
+                        <th mat-header-cell *matHeaderCellDef>GST  No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.gstNo}} </td>
+                    </ng-container>
+            
+               
+            
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="address">
+                        <th mat-header-cell *matHeaderCellDef> Address </th>
+                        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                    </ng-container>
+            
+                  
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsGstMaster"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsGstMaster;"></tr>
+                </table>
+            
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div> 
+        </p-tabPanel>
+        <p-tabPanel header="Vendor" leftIcon="pi pi-user" rightIcon="pi pi-star" tooltip="Vendor Management">
+            <div class="page-title d-md-flex justify-content-between align-items-center">
+                <h3> Vendor Management</h3>
+                <div class="text-right">
+                    <button class="btn btn-primary sm wid-150 ml-10" type="button" (click)="goToAddMasterData('vendor')">
+                        New Vendor
+                    </button>
+                </div>
+            </div>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event, 'vendor')" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource">
+            
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="gstNo">
+                        <th mat-header-cell *matHeaderCellDef>GST  No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.gstNo}} </td>
+                    </ng-container>
+            
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+            
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="address">
+                        <th mat-header-cell *matHeaderCellDef> Address </th>
+                        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                    </ng-container>
+            
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="phone">
+                        <th mat-header-cell *matHeaderCellDef> Phone </th>
+                        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div> 
+        </p-tabPanel>
+
+        <p-tabPanel header="User Management" leftIcon="pi pi-user" rightIcon="pi pi-star" tooltip="User Management">
+            <div class="page-title d-md-flex justify-content-between align-items-center">
+                <h3> User Management</h3>
+                <div class="text-right">
+                    <button class="btn btn-primary sm wid-150 ml-10" type="button" (click)="goToAddMasterData('user')">
+                        New User
+                    </button>
+                </div>
+            </div>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event, 'user')" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSourceUserMaster">
+            
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="firstName">
+                        <th mat-header-cell *matHeaderCellDef>first Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                    </ng-container>
+            
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+            
+                    <!-- Weight Column -->
+                   
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsUserMaster"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsUserMaster;"></tr>
+                </table>
+            
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div> 
+        </p-tabPanel>
+    </p-tabView>
+</div>

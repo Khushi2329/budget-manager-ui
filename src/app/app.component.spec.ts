@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'budget-manager-ui'`, () => {
+  it(`should have as title 'KSRW'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('budget-manager-ui');
+    expect(app.title).toEqual('KSRW');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('budget-manager-ui app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('KSRW app is running!');
   });
 });
