@@ -1,17 +1,16 @@
 {
-  "name": "KSRW",
+  "name": "budget-manager-ui",
   "version": "0.0.0",
   "engines": { 
     "node": "16.13.0",
      "npm": "8.1.0"
      },
   "scripts": {
-    "ng": "ng",
+    "ng": "ng serve",
     "start": "node src/server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "aws-deploy": "aws s3 sync dist/KSRW/ s3://khatushyam-roadways"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

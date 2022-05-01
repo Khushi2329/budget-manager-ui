@@ -10,10 +10,10 @@ const express = require('express');
 const app = express();
 
 app.use(requireHTTPS);
-app.use(express.static('./dist/KSRW'));
+app.use(express.static('./dist/budget-manager-ui'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/KSRW/'}),
+    res.sendFile('index.html', {root: 'dist/budget-manager-ui/'}),
 );
 
 app.listen(process.env.PORT || 8080);
