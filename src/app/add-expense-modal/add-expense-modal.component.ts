@@ -7,15 +7,25 @@ import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-add-expense-modal',
   templateUrl: './add-expense-modal.component.html',
-  styleUrls: ['./add-expense-modal.component.scss']
+  styleUrls: ['./add-expense-modal.component.scss'],
 })
 export class AddExpenseModalComponent implements OnInit {
-
   expenseForm: FormGroup;
-   monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-date = new Date()
+  monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  date = new Date();
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,30 +33,30 @@ date = new Date()
     readonly dataSrv: DataService,
     public dialogRef: MatDialogRef<AddExpenseModalComponent>
   ) {
+    console.log(this.data);
+    
     this.expenseForm = this.fb.group({
-      whoAdded: [],
+      whoAdded: [this.data.member],
       whatAdded: [],
       amount: [],
       date: [],
       month: [this.monthNames[this.date.getMonth()]],
-      category: []
-
+      category: [],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   addExpensesData() {
-    this.dataSrv
-      .addExpenses(this.expenseForm.value)
-      .subscribe((res) => {
-        console.log(res);
-        this.dialogRef.close(res);
-      });
+    this.dataSrv.addExpenses(this.expenseForm.value).subscribe((res) => {
+      console.log(res);
+      this.dialogRef.close(res);
+    });
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 }
-

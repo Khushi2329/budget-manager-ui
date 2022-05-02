@@ -4,6 +4,19 @@
     style="margin: 1rem"
   >
     <h3>Expenses Audit</h3>
+    <div class="col-md-4">
+      <mat-form-field>
+        <mat-select
+          placeholder="Select"
+          (selectionChange)="changeMember($event)"
+          [(ngModel)]="selectedMember"
+        >
+          <mat-option *ngFor="let member of userData" [value]="member">{{
+            member
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
     <div class="text-right">
       <button
         class="btn btn-primary sm wid-150 ml-10"
@@ -65,10 +78,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: displayedColumns"
-      ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
     <mat-paginator

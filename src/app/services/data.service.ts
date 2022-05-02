@@ -57,8 +57,8 @@ export class DataService {
     return this.http.post(`${this.baseUrl}/category-master`, body);
   }
 
-  getExpensesData() {
-    return this.http.get(`${this.baseUrl}/expenses`);
+  getExpensesData(name: string) {
+    return this.http.get(`${this.baseUrl}/expenses?whoAdded=${name}`);
   }
 
   addExpenses(body: any) {
