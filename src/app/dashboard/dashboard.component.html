@@ -33,6 +33,7 @@
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef>No.</th>
         <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+        <td mat-footer-cell *matFooterCellDef>Total</td>
       </ng-container>
 
       <ng-container matColumnDef="whoAdded">
@@ -40,6 +41,7 @@
         <td mat-cell *matCellDef="let element">
           {{ element.whoAdded }}
         </td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="amount">
@@ -47,6 +49,7 @@
         <td mat-cell *matCellDef="let element">
           {{ element.amount }}
         </td>
+        <td mat-footer-cell *matFooterCellDef>{{ getTotalCost() }}</td>
       </ng-container>
 
       <ng-container matColumnDef="category">
@@ -54,6 +57,7 @@
         <td mat-cell *matCellDef="let element">
           {{ element.category }}
         </td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="whatAdded">
@@ -61,6 +65,7 @@
         <td mat-cell *matCellDef="let element">
           {{ element.whatAdded }}
         </td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="date">
@@ -68,6 +73,7 @@
         <td mat-cell *matCellDef="let element">
           {{ element.date }}
         </td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="month">
@@ -75,10 +81,12 @@
         <td mat-cell *matCellDef="let element">
           {{ element.month }}
         </td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky : true"></tr>
     </table>
 
     <mat-paginator

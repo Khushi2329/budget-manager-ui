@@ -82,4 +82,8 @@ export class DashboardComponent implements OnInit {
     console.log(data);
     this.getExpensesData();
   }
+
+  getTotalCost() {
+    return this.dataSourceExpenses.data.map(t => t.amount).reduce((acc, value) => acc + value, 0);
+  }
 }
