@@ -1,1 +1,46 @@
-<p>admin works!</p>
+<div class="card">
+  <div
+    class="page-title d-md-flex justify-content-between align-items-center"
+    style="margin: 1rem"
+  >
+    <h3>Category Management</h3>
+    <div class="text-right">
+      <button
+        class="btn btn-primary sm wid-150 ml-10"
+        type="button"
+        (click)="openDialog('category')"
+      >
+        Add New
+      </button>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSourceAdmin">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>name</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element; let i=index">{{i+1 }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsCategories"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumnsCategories"
+      ></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>

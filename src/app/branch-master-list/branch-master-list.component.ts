@@ -54,7 +54,7 @@ export class BranchMasterListComponent implements OnInit {
   }
 
   getVendorMasterData() {
-    this.dataSrv.getPartyMasterData().subscribe((res: any) => {
+    this.dataSrv.getCategoryMasterData().subscribe((res: any) => {
       console.log(res);
       let data = [...res['data']];
       this.dataSource = new MatTableDataSource(data);

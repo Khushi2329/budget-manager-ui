@@ -1,66 +1,81 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 flex-container">
-            <div class="flex-item">
-            	<div class="flex-item-inner">
-                	<!-- card -->
-                	<a routerLink = "/branch">
-                        <div class="card-front bg-violet">
-                            <i class="fa fa-pie-chart fa-3x tile-icon icon-white"></i>
-                            <h4>Branch</h4>
-                            <p class="detail">View More details</p>
-                        </div>
-                      
-                    </a>
-                    <!-- /card -->
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 flex-container">
-
-            <div class="flex-item">
-            	<div class="flex-item-inner">
-                    <a routerLink="/truck">
-                        <div class="card-front bg-green">
-                            <i class="fa fa-heart fa-3x tile-icon icon-white"></i>
-                            <h4>Truck</h4>
-                            <p class="detail">View More Details</p>
-                        </div>
-                       
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="col-md-3 flex-container">
-
-            <div class="flex-item">
-            	<div class="flex-item-inner">
-                    <a routerLink="/truck">
-                        <div class="card-front bg-green">
-                            <i class="fa fa-heart fa-3x tile-icon icon-white"></i>
-                            <h4>Account</h4>
-                            <p class="detail">$XXX,XXX</p>
-                        </div>
-                       
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 flex-container">
-
-            <div class="flex-item">
-            	<div class="flex-item-inner">
-                    <a routerLink="/truck">
-                        <div class="card-front bg-green">
-                            <i class="fa fa-heart fa-3x tile-icon icon-white"></i>
-                            <h4>GST</h4>
-                            <p class="detail">$XXX,XXX</p>
-                        </div>
-                       
-                    </a>
-                </div>
-            </div>
-        </div> -->
-           
+<div class="card">
+  <div
+    class="page-title d-md-flex justify-content-between align-items-center"
+    style="margin: 1rem"
+  >
+    <h3>Expenses Audit</h3>
+    <div class="text-right">
+      <button
+        class="btn btn-primary sm wid-150 ml-10"
+        type="button"
+        (click)="openDialog('category')"
+      >
+        Add New
+      </button>
     </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSourceExpenses">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="whoAdded">
+        <th mat-header-cell *matHeaderCellDef>Added By</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.whoAdded }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.amount }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.category }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="whatAdded">
+        <th mat-header-cell *matHeaderCellDef>What Added</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.whatAdded }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.date }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="month">
+        <th mat-header-cell *matHeaderCellDef>Month</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.month }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
 </div>

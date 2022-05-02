@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./add-master.component.scss'],
 })
 export class AddMasterComponent implements OnInit {
-  truckForm: FormGroup;
+  categoryForm: FormGroup;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -17,10 +17,8 @@ export class AddMasterComponent implements OnInit {
     readonly dataSrv: DataService,
     public dialogRef: MatDialogRef<AddMasterComponent>
   ) {
-    this.truckForm = this.fb.group({
-      code: [],
-      make: [],
-      remarks: [],
+    this.categoryForm = this.fb.group({
+      name: [],
     });
   }
 
@@ -28,7 +26,7 @@ export class AddMasterComponent implements OnInit {
 
   createTruckMakeMasterData() {
     this.dataSrv
-      .createTruckMakeMaster(this.truckForm.value)
+      .createCategoryMaster(this.categoryForm.value)
       .subscribe((res) => {
         console.log(res);
         this.dialogRef.close(res);

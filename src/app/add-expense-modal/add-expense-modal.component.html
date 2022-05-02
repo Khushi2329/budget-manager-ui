@@ -1,0 +1,48 @@
+<mat-card >
+    <mat-card-content>
+        <form [formGroup]="expenseForm">
+            <h2>Add Expense</h2>
+            <div class="row">
+                <div class="col-4">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Added By" formControlName="whoAdded" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Amount" formControlName="amount" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="What added" formControlName="whatAdded" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="month" formControlName="month" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Date" formControlName="date" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field>
+                        <mat-select placeholder="Select" name="education_level" formControlName="category" >
+                          <mat-option *ngFor="let category of data.categoryData" [value]="category.name" >{{ category.name }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                 
+                </div>
+
+
+            </div>
+
+            <button mat-raised-button style="margin: 10px;" (click)="onNoClick()">Cancel</button>
+            <button mat-raised-button (click)="addExpensesData()" color="primary">Submit</button>
+
+        </form>
+    </mat-card-content>
+</mat-card>

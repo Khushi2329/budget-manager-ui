@@ -25,6 +25,8 @@ import { TruckMasterComponent } from './module/truck/truck-master/truck-master.c
 import { AddMasterComponent } from './module/truck/add-master/add-master.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
+import { AddExpenseModalComponent } from './add-expense-modal/add-expense-modal.component';
+import { AddCategoryModalComponent } from './add-category-modal/add-category-modal.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { AdminComponent } from './admin/admin.component';
     TruckMasterComponent,
     AddMasterComponent,
     AdminComponent,
+    AddExpenseModalComponent,
+    AddCategoryModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import { AdminComponent } from './admin/admin.component';
       autoDismiss: true
     }),
   ],
-  entryComponents: [AddMasterComponent],
+  entryComponents: [AddMasterComponent, AddCategoryModalComponent],
 
   
 

@@ -9,8 +9,8 @@ export class DataService {
 
   constructor(readonly http: HttpClient) {}
 
-  getPartyMasterData() {
-    return this.http.get(`${this.baseUrl}/party-master`);
+  getCategoryMasterData() {
+    return this.http.get(`${this.baseUrl}/category-master`);
   }
 
   getGSTMasterData() {
@@ -52,8 +52,16 @@ export class DataService {
   createUser(body: any) {
     return this.http.post(`${this.baseUrl}/signup`, body);
   }
-  
-  createTruckMakeMaster(body: any) {
-    return this.http.post(`${this.baseUrl}/truck-make-master`, body);
+
+  createCategoryMaster(body: any) {
+    return this.http.post(`${this.baseUrl}/category-master`, body);
+  }
+
+  getExpensesData() {
+    return this.http.get(`${this.baseUrl}/expenses`);
+  }
+
+  addExpenses(body: any) {
+    return this.http.post(`${this.baseUrl}/expenses`, body);
   }
 }
