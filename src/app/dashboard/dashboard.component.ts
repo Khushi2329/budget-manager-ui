@@ -19,12 +19,15 @@ export class DashboardComponent implements OnInit {
   dataSourceExpenses = new MatTableDataSource<any>([]);
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+  userData = localStorage.getItem('currentUser');
 
   constructor(readonly router: Router, readonly dataSrv: DataService,
     public dialog: MatDialog
     ) {}
 
   ngOnInit() {
+    console.log(this.userData);
+    
     this.getCategories();
     this.getExpensesData();
   }

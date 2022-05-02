@@ -12,6 +12,10 @@ import { DataService } from '../services/data.service';
 export class AddExpenseModalComponent implements OnInit {
 
   expenseForm: FormGroup;
+   monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+date = new Date()
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -24,7 +28,7 @@ export class AddExpenseModalComponent implements OnInit {
       whatAdded: [],
       amount: [],
       date: [],
-      month: [],
+      month: [this.monthNames[this.date.getMonth()]],
       category: []
 
     });
