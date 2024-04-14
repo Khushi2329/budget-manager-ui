@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { AddMasterComponent } from '../module/truck/add-master/add-master.component';
 import { DataService } from '../services/data.service';
 
 @Component({
