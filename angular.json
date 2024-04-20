@@ -115,5 +115,8 @@
       }
     }
   },
-  "defaultProject": "budget-manager-ui"
+  "defaultProject": "budget-manager-ui",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -16,10 +16,8 @@ export class DashboardComponent implements OnInit {
     'position',
     'whoAdded',
     'amount',
-    'date',
     'category',
     'whatAdded',
-    'month',
   ];
   categoryData: any[] = [];
   selectedMember: string = '';
@@ -34,8 +32,8 @@ export class DashboardComponent implements OnInit {
     readonly dataSrv: DataService,
     public dialog: MatDialog
   ) {
-    this.userData = this.userData.user.familyMembers;
-    this.selectedMember = this.userData[0];
+    this.userData = this.userData.user;
+    this.selectedMember = this.userData.name;
   }
 
   ngOnInit() {
